@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  stock_manager
+
+  Sample SAM Template for stock_manager
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        SAM_CLI_BETA_ESBUILD: 1
+        MONGODB_HOST: 192.168.43.122
+        MONGODB_PORT: "27017"
+        MONGODB_USER: "admin"
+        MONGODB_PASSWORD: "P4zsW0rD"
+        MONGODB_DBNAME: "stock_manager"
+        MONGODB_COLLNAME: "products"
+        MONGODB_RESOURCE: "mongodb"
+    Timeout: 180
+    Runtime: nodejs16.x
+    MemorySize: 2048
+
+Resources:
+  SaveProductFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/save/
+      Handler: app.saveHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /api/stock-manager
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: 'es2020'
+        Sourcemap: true
+        UseNpmCi: true
+
+  ReadProductsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/read/
+      Handler: app.readHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /api/stock-manager
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: 'es2020'
+        Sourcemap: true
+        UseNpmCi: true
+
+  DeleteProductFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/delete/
+      Handler: app.deleteHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /api/stock-manager/{id}
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: 'es2020'
+        Sourcemap: true
+        UseNpmCi: true
+
+  UpdateProductFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/update/
+      Handler: app.lambdaHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /api/stock-manager/{id}
+            Method: PUT
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: 'es2020'
+        Sourcemap: true
+        UseNpmCi: true
