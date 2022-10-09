@@ -25,7 +25,7 @@
 
 ## Entradas
 
-> POST /api/stock-manager
-> GET /api/stock-manager
-> PUT /api/stock-manager/{id}
-> DELETE /api/stock-manager/{id}
+> POST /api/stock-manager  
+> GET /api/stock-manager   
+> PUT /api/stock-manager/{id}  
+> DELETE /api/stock-manager/{id}  
