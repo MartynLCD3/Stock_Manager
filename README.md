@@ -22,3 +22,10 @@
 ## Tener en cuenta
 
 > crear en raíz de proyecto directorio para persistencia de datos: mongo_data 
+
+## Entradas
+
+> POST /api/stock-manager
+> GET /api/stock-manager
+> PUT /api/stock-manager/{id}
+> DELETE /api/stock-manager/{id}
