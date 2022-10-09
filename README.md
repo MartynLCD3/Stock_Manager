@@ -2,10 +2,10 @@
 
 ## Requisitos
 
-> Node.JS >= 16.17.0
-> Docker >= 20.10.2
-> docker-compose >= 1.26.0
-> SAM CLI >= 1.55.0
+> Node.JS >= 16.17.0  
+> Docker >= 20.10.2  
+> docker-compose >= 1.26.0  
+> SAM CLI >= 1.55.0  
 
 ## Descarga
 
