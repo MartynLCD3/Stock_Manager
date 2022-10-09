@@ -92,7 +92,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/update/
-      Handler: app.lambdaHandler
+      Handler: app.updateHandler
       Runtime: nodejs16.x
       Architectures:
         - x86_64
