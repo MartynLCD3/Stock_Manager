@@ -2,7 +2,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 let response: APIGatewayProxyResult | PromiseLike<APIGatewayProxyResult>;
 import processProduct from "./src/core/functions/processProduct";
 
-export async function lambdaHandler(
+export async function updateHandler(
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> {
   try {
