@@ -29,3 +29,7 @@
 > GET /api/stock-manager   
 > PUT /api/stock-manager/{id}  
 > DELETE /api/stock-manager/{id}  
+
+## Ejemplo
+
+> ver directorio payload-example
